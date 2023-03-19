@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker build -t ghcr.io/footgraph/a433-microservices-submission-item-app:latest .
 
 docker image ls -a
@@ -10,3 +12,6 @@ docker push ghcr.io/footgraph/a433-microservices-submission-item-app:v1
 
 docker compose logs > log.txt
 
+git add .
+git commit -m "from build push image script"
+git push
