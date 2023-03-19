@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+
+  #service untuk mongo db container
+  item-db:
+    container_name: item-db
+    image: mongo:3
+    ports:
+      - "27017:27017"
+    
+    networks:
+      - item-app-net
+
+    volumes: 
+      - app-db:/data/db
+    restart: on-failure
+
+  #service untuk app node js container
+  item-app:
+    container_name: item-app
+    build: .
+    ports:
+      - 80:8080
+    networks:
+      - item-app-net
+
+    depends_on:
+      - item-db
+
+    restart: on-failure
+    # command: docker pull ghcr.io/footgraph/app-microservices-submission
+
+volumes:
+  app-db:
+    name: app-db
+
+networks:
+  item-app-net:
+    name: item-app-net
+    driver: bridge
