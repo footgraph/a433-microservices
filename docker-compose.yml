@@ -29,7 +29,6 @@ services:
       - item-db
 
     restart: on-failure
-    # command: docker pull ghcr.io/footgraph/app-microservices-submission
 
 volumes:
   app-db:
