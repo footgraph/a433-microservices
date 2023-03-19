@@ -9,3 +9,5 @@ RUN npm install --production --unsafe-perm && npm run build
 
 EXPOSE 8080
 CMD ["npm", "start"]
+
+LABEL org.opencontainers.image.source = "https://github.com/footgraph/a433-microservices"
