@@ -16,7 +16,7 @@ services:
   #service untuk app node js container yang memiliki port publish 80, menggunakan network yang sama dengan item-db yaitu item-app-net
   item-app:
     container_name: item-app
-    build: .
+    image: ghcr.io/footgraph/a433-microservices/item-app:v1
     ports:
       - 80:8080
     networks:
